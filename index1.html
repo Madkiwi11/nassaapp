@@ -1,114 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Underwater Ecosystem</title>
-    <style>
-
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i|Oxygen:300");
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Underwater Ecosystem Simulation - Space Theme</title>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+          <style>
+              @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+              @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i|Oxygen:300");
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-* {
-  box-sizing: border-box;
-}
-
-#planet-container {
-  cursor: -webkit-grab;
-  cursor: grab;
-  position: relative;
-}
-
-#planet-info {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 2rem;
-}
-
-#planet-info h1 {
-  font-size: 8vw;
-  margin-top: 0;
-  font-weight: 100;
-  line-height: 1;
-  position: absolute;
-}
-
-#planet-info div {
-  width: 40%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  right: 0;
-  padding: 1.3rem;
-  line-height: 1.6;
-  font-size: 1.2rem;
-  pointer-events: none;
-}
-
-@media (max-width: 1024px) {
-  #planet-info h1 {
-    font-size: 6vw;
-  }
-
-  #planet-info div {
-    width: 50%;
-    font-size: 1.1rem;
-  }
-
-  #planet-container canvas {
-    width: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-  #planet-info h1 {
-    font-size: 7vw;
-  }
-
-  #planet-info div {
-    width: 60%;
-    font-size: 1rem;
-  }
-
-  #planet-container {
-    margin-top: 5vw;
-  }
-  
-  #planet-container canvas {
-    width: 85%;
-  }
-}
-
-@media (max-width: 540px) {
-  #planet-info h1 {
-    font-size: 8vw;
-  }
-
-  #planet-info div {
-    width: 100%;
-    left: 0;
-    top: 40vw;
-    font-size: 0.95rem;
-    padding: 1rem;
-  }
-  
-  #planet-container {
-    margin-top: 10vw;
-  }
-
-  #planet-container canvas {
-    width: 90%;
-    height: auto;
-  }
-}
-
-@media (max-width: 375px) {
-  #planet-info div {
-    font-size: 0.85rem;
-    top: 45vw;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
 
 body {
   margin: 0;
@@ -149,117 +55,6 @@ body {
   cursor: pointer;
 }
 
-#planet-container {
-  cursor: -webkit-grab;
-  cursor: grab;
-  margin-top: 0px;
-  padding-top: 40px;
-  background-image: url('./img/f2.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-#planet-info {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 2rem;
-}
-
-#planet-info h1 {
-  padding: 5px;
-  font-size: 4vw;
-  margin-top: 0;
-  font-weight: 100;
-  line-height: 1;
-  margin-top: 45px;
-  position: absolute;
-}
-
-#planet-info div {
-  width: 40%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0);
-  right: 0;
-  padding: 1.3rem;
-  line-height: 1.6;
-  font-size: 1.2rem;
-  pointer-events: none;
-  margin-top: 400px;
-}
-
-#planet-info .info {
-  width: 40%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0);
-  right: 0;
-  padding: 1.3rem;
-  line-height: 1.6;
-  font-size: 1.2rem;
-  margin-top: 100px;
-  margin-right: 800px;
-  pointer-events: none;
-}
-
-@media (max-width: 1024px) {
-  #planet-info div,
-  #planet-info .info {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  #planet-info div,
-  #planet-info .info {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #planet-info div {
-    font-size: 1.1rem;
-    width: 100%;
-    top: 300px;
-  }
-
-  #planet-info .info {
-    font-size: 1.2rem;
-    width: 100%;
-    top: 50px;
-  }
-  
-  #planet-info h1 {
-    font-size: 9vw;
-    top: 30px;
-  }
-}
-
-@media (max-width: 375px) {
-  #planet-info div,
-  #planet-info .info {
-    font-size: 0.8rem;
-    width: 95%;
-    left: 2.5%;
-  }
-}
-
-.challenge-idea {
-  background-color: #000000;
-  padding: 50px 20px;
-  transition: transform 0.5s ease;
-}
-
-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.section-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .logo {
   margin-right: 20px;
@@ -359,7 +154,7 @@ section {
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         h2 {
-            color: #0984a3; 
+            color: #3498db; 
         }
         ul {
             list-style-type: none; 
@@ -397,126 +192,355 @@ section {
 
 
 
-
-
-
-
-    </style>
-    <script src="script.js" defer></script>
-
-</head>
-<body>
-
-    <nav id="navbar">
-        <div class="logo">
-          <a href="#">
-            <img src="img/logo.png" alt="Logo" id="logo">
-          </a>
-        </div>
-        <div class="menu-toggle" id="mobile-menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index1.html">Simulation</a></li>
-          <li><a href="index2.html">Contact</a></li>
-          <li>
-              
-            <button id="translate-btn">
-              <span class="material-icons">translate</span> 
-          </button>
-          </li>
-        </ul>
-        
-      </nav>
       
+              * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+              }
+      
+              body {
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #000000;
+    background-image: url('/img/f2.jpeg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
 
-      <h1 class="translate-text" data-en="Underwater Ecosystem Simulation" data-ar="محاكاة النظام البيئي تحت الماء">Underwater Ecosystem Simulation</h1>
+      
+              @keyframes starsAnimation {
+                  from {
+                      background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+                  }
+                  to {
+                      background-position: 550px 550px, 390px 410px, 380px 520px, 220px 250px;
+                  }
+              }
+      
+              .container {
+                  max-width: 1200px;
+                  margin: 0 auto;
+                  padding: 2rem;
+              }
+      
+              header {
+                  background-color: rgba(0, 0, 0, 0.6);
+                  color: #e3e3e3;
+                  padding: 2rem 0;
+                  text-align: center;
+              }
+      
+              h1 {
+                  font-size: 2.5rem;
+                  margin-bottom: 1rem;
+                  font-family: 'Orbitron', sans-serif;
+              }
+      
+              .grid {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                  gap: 2rem;
+                  margin-top: 2rem;
+              }
+      
+              .card {
+                  background-color: rgba(0, 0, 0, 0.6);
+                  border-radius: 10px;
+                  padding: 1.5rem;
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;
+                  border: 1px solid #3498db;
+              }
+      
+              .card:hover {
+                  transform: translateY(-5px);
+                  box-shadow: 0 0 30px rgba(0, 89, 255, 0.4);
+              }
+      
+              h2 {
+                  color: #ffffff;
+                  margin-bottom: 1rem;
+                  /*text-shadow: 0 0 5px #00ffff;*/
+              }
+      
+              ul {
+                  list-style-type: none;
+                  padding-left: 1rem;
+              }
+      
+              li {
+                  margin-bottom: 0.5rem;
+              }
+      
+              .chart-container {
+                  position: relative;
+                  height: 300px;
+                  width: 100%;
+              }
+      
+              .pyramid {
+                  width: 0;
+                  height: 0;
+                  border-left: 150px solid transparent;
+                  border-right: 150px solid transparent;
+                  border-bottom: 300px solid rgba(39, 114, 255, 0.384);
+                  position: relative;
+                  margin: 2rem auto;
+              }
+      
+              .pyramid-level {
+                 
+                  left: 50%;
+                  transform: translateX(-50%);
+                  text-align: center;
+                  color: #f0f0f0e5;
+                  font-weight: bold;
+                  
+              }
+      
+              .level-1 { bottom: 10px; }
+              .level-2 { bottom: 80px; }
+              .level-3 { bottom: 150px; }
+              .level-4 { bottom: 220px; }
+      
+              @media (max-width: 768px) {
+                  .grid {
+                      grid-template-columns: 1fr;
+                  }
+              }
 
-      <div class="section">
-          <h2 class="translate-text" data-en="Average Energy Data from the Simulation:" data-ar="بيانات الطاقة المتوسطة من المحاكاة:">Average Energy Data from the Simulation:</h2>
-          <ul>
-              <li class="translate-text" data-en="Average Energy of Bacteria: 76.078" data-ar="متوسط طاقة البكتيريا: 76.078">Average Energy of Bacteria: 76.078</li>
-              <li class="translate-text" data-en="Average Energy of Tube Worms: 80.92" data-ar="متوسط طاقة الديدان الأنبوبية: 80.92">Average Energy of Tube Worms: 80.92</li>
-              <li class="translate-text" data-en="Average Energy of Crabs: 10370.8" data-ar="متوسط طاقة السرطانات: 10370.8">Average Energy of Crabs: 10370.8</li>
-          </ul>
-      
-          <h2 class="translate-text" data-en="Key Points about Organisms and Their Interactions:" data-ar="نقاط رئيسية حول الكائنات وتفاعلاتها:">Key Points about Organisms and Their Interactions:</h2>
-          <ul>
-            <li class="translate-text" data-en="Bacteria: There are two types: one thrives near hydrothermal vents by directly consuming minerals, and another feeds on the first type. This adaptability has allowed bacteria to flourish. They form the base of our food pyramid, providing the energy necessary for other organisms." 
-            data-ar="البكتيريا: هناك نوعان: أحدهما ينمو بالقرب من الفتحات الحرارية المائية عن طريق استهلاك المعادن مباشرة، والآخر يتغذى على النوع الأول. هذه القدرة على التكيف سمحت للبكتيريا بالازدهار. تشكل قاعدة هرم الغذاء لدينا، وتوفر الطاقة اللازمة للكائنات الأخرى.">Bacteria: There are two types: one thrives near hydrothermal vents by directly consuming minerals, and another feeds on the first type. This adaptability has allowed bacteria to flourish. They form the base of our food pyramid, providing the energy necessary for other organisms.</li>
-            
-            <li class="translate-text" data-en="Tube Worms and Crabs: Tube worms depend on bacteria as a food source, while crabs are predators that feed on tube worms. The average energy levels for both tube worms and crabs indicate successful reproduction and survival, highlighting a healthy food chain: bacteria → tube worms → crabs." 
-            data-ar="الديدان الأنبوبية والسرطانات: تعتمد الديدان الأنبوبية على البكتيريا كمصدر غذائي، في حين أن السرطانات هي مفترسات تتغذى على الديدان الأنبوبية. تشير مستويات الطاقة المتوسطة لكل من الديدان الأنبوبية والسرطانات إلى نجاح التكاثر والبقاء، مما يبرز سلسلة غذائية صحية: البكتيريا → الديدان الأنبوبية → السرطانات.">Tube Worms and Crabs: Tube worms depend on bacteria as a food source, while crabs are predators that feed on tube worms. The average energy levels for both tube worms and crabs indicate successful reproduction and survival, highlighting a healthy food chain: bacteria → tube worms → crabs.</li>
-            
-            <li class="translate-text" data-en="Bioluminescent Organisms: Additionally, there are organisms capable of producing light, even in the harsh conditions of our oceanic world. These organisms achieve this by converting chemical compounds derived from deep-sea vents into light. This adaptive ability is crucial for survival, especially in a sunless environment." 
-            data-ar="الكائنات المتوهجة: بالإضافة إلى ذلك، هناك كائنات قادرة على إنتاج الضوء حتى في الظروف القاسية لعالمنا المحيطي. تحقق هذه الكائنات ذلك عن طريق تحويل المركبات الكيميائية المستمدة من الفتحات الحرارية العميقة إلى ضوء. هذه القدرة التكيفية حاسمة للبقاء، خاصة في بيئة بلا شمس.">Bioluminescent Organisms: Additionally, there are organisms capable of producing light, even in the harsh conditions of our oceanic world. These organisms achieve this by converting chemical compounds derived from deep-sea vents into light. This adaptive ability is crucial for survival, especially in a sunless environment.</li>
-        </ul>
-        
-      
-          <h2 class="translate-text" data-en="Food Pyramid:" data-ar="هرم الغذاء:">Food Pyramid:</h2>
-          <ul>
-              <li class="translate-text" data-en="The food pyramid consists of:" data-ar="هرم الغذاء يتكون من:">The food pyramid consists of:</li>
-              <li class="translate-text" data-en="Hydrothermal Vents: which provide minerals and energy." data-ar="الفتحات الحرارية: التي توفر المعادن والطاقة.">Hydrothermal Vents: which provide minerals and energy.</li>
-              <li class="translate-text" data-en="Chemical Compounds: essential for light-producing organisms." data-ar="المركبات الكيميائية: ضرورية للكائنات المنتجة للضوء.">Chemical Compounds: essential for light-producing organisms.</li>
-              <li class="translate-text" data-en="Bacteria: the base of the food chain, feeding on the vents." data-ar="البكتيريا: قاعدة السلسلة الغذائية، تتغذى على الفتحات.">Bacteria: the base of the food chain, feeding on the vents.</li>
-              <li class="translate-text" data-en="Consumer Organisms: tube worms and crabs that rely on bacteria." data-ar="الكائنات المستهلكة: الديدان الأنبوبية والسرطانات التي تعتمد على البكتيريا.">Consumer Organisms: tube worms and crabs that rely on bacteria.</li>
-          </ul>
-      
-          <h2 class="translate-text" data-en="Environmental Conditions:" data-ar="الظروف البيئية:">Environmental Conditions:</h2>
-          <p class="translate-text" data-en="The simulation takes into account harsh conditions, including volcanic activity that heats the water near hydrothermal vents to about 400 degrees Celsius. This creates unique locations for organisms to thrive." data-ar="تأخذ المحاكاة في الاعتبار الظروف القاسية، بما في ذلك النشاط البركاني الذي يسخن الماء بالقرب من الفتحات الحرارية إلى حوالي 400 درجة مئوية. هذا يخلق مواقع فريدة للكائنات لتزدهر.">The simulation takes into account harsh conditions, including volcanic activity that heats the water near hydrothermal vents to about 400 degrees Celsius. This creates unique locations for organisms to thrive.</p>
-      
-          <h2 class="translate-text" data-en="Conclusions:" data-ar="الاستنتاجات:">Conclusions:</h2>
-          <p class="translate-text" data-en="The increasing energy levels indicate that life in our oceanic world is well-adapted. Hydrothermal vents play a vital role in supporting life by providing nutrients and energy. This dynamic ecosystem demonstrates the importance of the food pyramid, where each level depends on the one below it for survival. When planning to introduce new organisms, they should also be designed to thrive near these mineral-rich vents, ensuring a stable environment for life to flourish." data-ar="تشير مستويات الطاقة المتزايدة إلى أن الحياة في عالمنا المحيطي تتكيف جيدًا. تلعب الفتحات الحرارية دورًا حيويًا في دعم الحياة من خلال توفير المغذيات والطاقة. يظهر هذا النظام البيئي الديناميكي أهمية هرم الغذاء، حيث يعتمد كل مستوى على المستوى الذي يسبقه للبقاء. عند التخطيط لإدخال كائنات جديدة، يجب تصميمها أيضًا لتزدهر بالقرب من هذه الفتحات الغنية بالمعادن، مما يضمن بيئة مستقرة لازدهار الحياة.">The increasing energy levels indicate that life in our oceanic world is well-adapted. Hydrothermal vents play a vital role in supporting life by providing nutrients and energy. This dynamic ecosystem demonstrates the importance of the food pyramid, where each level depends on the one below it for survival. When planning to introduce new organisms, they should also be designed to thrive near these mineral-rich vents, ensuring a stable environment for life to flourish.</p>
+
+              .footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #0984a3;
+}
+
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+  }
+
+  .footer-links a {
+    margin: 10px 0;
+  }
+}
+
+
+
+
+
+
+
+
+          </style>
+     
+
+     <nav id="navbar">
+      <div class="logo">
+        <a href="#">
+          <img src="img/logo.png" alt="Logo" id="logo">
+        </a>
       </div>
-      
-      <div class="image-gallery">
-          <div class="image-container">
-              <img src="da.png" alt="Image 1" class="responsive-image">
-          </div>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index1.html">Simulation</a></li>
+        <li><a href="vid.html">Demo</a></li>
+        <li><a href="team.html">About us</a></li>
+        <li><a href="index2.html">Contact</a></li>
       
-      <script>
-        document.getElementById('translate-btn').addEventListener('click', function () {
-            // الحصول على جميع العناصر التي تحتاج إلى ترجمة
-            const translatableElements = document.querySelectorAll('.translate-text');
+      </ul>
+      
+    </nav>
+
+
+
+
+
+          <header>
+              <div class="container">
+                  <h1>Underwater Ecosystem Simulation</h1>
+                  <p>Exploring life in the cosmic ocean</p>
+              </div>
+          </header>
+      
+          <main class="container">
+              <div class="grid">
+                  <div class="card">
+                      <h2>Average Energy Data</h2>
+                      <canvas id="energyChart"></canvas>
+                  </div>
+      
+                  <div class="card">
+                      <h2>Key Organisms</h2>
+                      <ul>
+                          <li><strong>Bacteria:</strong> Two types, one thriving near hydrothermal vents, another feeding on the first type.</li>
+                          <li><strong>Tube Worms:</strong> Depend on bacteria as a food source.</li>
+                          <li><strong>Crabs:</strong> Predators that feed on tube worms.</li>
+                          <li><strong>Bioluminescent Organisms:</strong> Produce light by converting chemical compounds from deep-sea vents.</li>
+                      </ul>
+                  </div>
+      
+                  <div class="card">
+                      <h2>Food Pyramid</h2>
+                      <div class="pyramid">
+                          <div class="pyramid-level level-1">Consumer Organisms</div>
+                          <div class="pyramid-level level-2">Bacteria</div>
+                          <div class="pyramid-level level-3">Chemical Compounds</div>
+                          <div class="pyramid-level level-4">Hydrothermal Vents</div>
+                      </div>
+                  </div>
+      
+                  <div class="card">
+                      <h2>Environmental Conditions</h2>
+                      <p>The simulation accounts for harsh conditions, including:</p>
+                      <ul>
+                          <li>Volcanic activity near hydrothermal vents</li>
+                          <li>Water temperatures reaching 400°C near vents</li>
+                          <li>Unique locations for organisms to thrive</li>
+                      </ul>
+                  </div>
+      
+                  <div class="card">
+                      <h2>Conclusions</h2>
+                      <ul>
+                          <li>Life in the oceanic world is well-adapted</li>
+                          <li>Hydrothermal vents are vital for supporting life</li>
+                          <li>The ecosystem demonstrates the importance of the food pyramid</li>
+                          <li>New organisms should be designed to thrive near mineral-rich vents</li>
+                      </ul>
+                  </div>
+              </div>
+          </main>
+          <footer class="footer">
+            <div class="footer-content">
+              <div class="footer-links">
+                <a href="#home" class="translatable" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="#about" class="translatable" data-en="About" data-ar="معلومات عنا">About</a>
+                <a href="#services" class="translatable" data-en="Services" data-ar="الخدمات">Services</a>
+                <a href="#contact" class="translatable" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+              <div class="footer-copy">
+                <p class="translatable" data-en="© 2024 ." data-ar="© 2024 ">
+                  © 2024 .
+                </p>
+                <p>For support, contact us at: <a href="mailto:support@example.com" style="color: white;">support@example.com</a></p>
+              </div>
+            </div>
+          </footer>
+          
+          <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                  const ctx = document.getElementById('energyChart').getContext('2d');
+                  new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                          labels: ['Bacteria', 'Tube Worms', 'Crabs'],
+                          datasets: [{
+                              label: 'Average Energy',
+                              data: [76.078, 80.92, 10370.8],
+                              backgroundColor: [
+                                  'rgba(0, 255, 255, 0.6)',
+                                  'rgba(255, 0, 255, 0.6)',
+                                  'rgba(255, 255, 0, 0.6)'
+                              ],
+                              borderColor: [
+                                  'rgba(0, 255, 255, 1)',
+                                  'rgba(255, 0, 255, 1)',
+                                  'rgba(255, 255, 0, 1)'
+                              ],
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          responsive: true,
+                          scales: {
+                              y: {
+                                  beginAtZero: true,
+                                  type: 'logarithmic',
+                                  grid: {
+                                      color: 'rgba(255, 255, 255, 0.1)'
+                                  },
+                                  ticks: {
+                                      color: '#3498db'
+                                  }
+                              },
+                              x: {
+                                  grid: {
+                                      color: 'rgba(255, 255, 255, 0.1)'
+                                  },
+                                  ticks: {
+                                      color: '#3498db'
+                                  }
+                              }
+                          },
+                          plugins: {
+                              legend: {
+                                  display: false
+                              },
+                              title: {
+                                  display: true,
+                                  text: 'Average Energy by Organism',
+                                  color: '#3498db'
+                              }
+                          }
+                      }
+                  });
+              });
+          </script>
     
-            // التبديل بين اللغة الإنجليزية والعربية
-            translatableElements.forEach(element => {
-                if (element.textContent === element.getAttribute('data-en')) {
-                    // إذا كان النص حاليًا باللغة الإنجليزية، قم بالتبديل إلى العربية
-                    element.textContent = element.getAttribute('data-ar');
-                    element.style.direction = 'rtl'; // تغيير الاتجاه لليمين لليسار
-                    element.style.textAlign = 'right'; // محاذاة النص لليمين
-                } else {
-                    // إذا كان النص حاليًا باللغة العربية، قم بالتبديل إلى الإنجليزية
-                    element.textContent = element.getAttribute('data-en');
-                    element.style.direction = 'ltr'; // تغيير الاتجاه لليسار لليمين
-                    element.style.textAlign = 'left'; // محاذاة النص لليسار
-                }
+      <script>     const mobileMenu = document.getElementById("mobile-menu");
+        const navList = document.querySelector(".nav-list");
+        
+        if (mobileMenu) {
+            mobileMenu.addEventListener("click", () => {
+                navList.classList.toggle("show");
             });
-        });
-
-        const mobileMenu = document.getElementById("mobile-menu");
-const navList = document.querySelector(".nav-list");
-
-if (mobileMenu) {
-    mobileMenu.addEventListener("click", () => {
-        navList.classList.toggle("show");
-    });
-}
-
-function showText() {
-    const translatableElements = document.querySelectorAll('.translatable');
-    translatableElements.forEach(element => {
-        element.style.opacity = 1;
-    });
-}
-
-setTimeout(showText, 1000);
-    </script>
+        }
+        
+        function showText() {
+            const translatableElements = document.querySelectorAll('.translatable');
+            translatableElements.forEach(element => {
+                element.style.opacity = 1;
+            });
+        }
+        
+        setTimeout(showText, 1000);
+        </script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js'></script>
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/orbitcontrols.js'></script>

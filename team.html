@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <style>
+     
+        @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i|Oxygen:300");
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .team-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            perspective: 1000px;
+        }
+
+        .member-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .member-image {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .member-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .member-info p {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #3498db;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #2980b9;
+        }
+
+        .member-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(0 0 0 / 93%);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .member-details.show {
+            opacity: 1;
+        }
+
+        .member-details p {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+
+
+
+        body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Oxygen, sans-serif;
+    color: #fff;
+    background: black;
+  }
+  
+  #navbar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    z-index: 1000;
+    text-align: right;
+  }
+  
+  #navbar ul {
+    list-style-type: none;
+    margin: 0;
+    gap: 20px;
+    padding: 0;
+  }
+  
+  #navbar ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  #navbar ul li a, #navbar ul li button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+ 
+  section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .section-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .logo {
+    margin-right: 20px;
+  }
+  
+  #logo {
+    width: 80px;
+    height: auto;
+    padding: 1px;
+  }
+  
+  #navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 60px;
+  }
+  
+  #navbar .nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+  }
+  
+  @media (max-width: 768px) {
+    #navbar .nav-list {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      width: 100%;
+      align-items: center;
+      margin-top: -10px;
+    }
+  
+    #navbar .nav-list.show {
+      display: flex;
+    }
+  
+    #navbar .nav-list li {
+      margin: 10px 0;
+    }
+  
+    #navbar .nav-list li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+    }
+  
+    #navbar .nav-list li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  
+    .menu-toggle {
+      display: flex;
+    }
+  
+    .logo, #translate-btn {
+      margin: 0 20px;
+    }
+  }
+  
+  .translatable {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .nav-list {
+    display: none; /* Hide by default */
+}
+
+.nav-list.show {
+    display: block; /* Show when the class is added */
+}
+
+#navbar ul li a, #navbar ul li button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #0984a3;
+}
+
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+  }
+
+  .footer-links a {
+    margin: 10px 0;
+  }
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+
+    <nav id="navbar">
+        <div class="logo">
+          <a href="#">
+            <img src="img/logo.png" alt="Logo" id="logo">
+          </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index1.html">Simulation</a></li>
+          <li><a href="vid.html">Demo</a></li>
+          <li><a href="team.html">About us</a></li>
+          <li><a href="index2.html">Contact</a></li>
+        
+      </nav>
+
+
+
+
+
+
+
+
+    <div class="container">
+        <h2 class="team-title">Meet our team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="imgs/image.png" alt="">
+                        <div class="member-details">
+                            <p><strong>Age:</strong> 22</p>
+                            <p><strong>Hobby:</strong> Basketball</p>
+                            <p><strong>Quote:</strong> "You have no idea how high i can fly."</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Fatima Hasan Nadhum</h3>
+                        <p>Front-end Developer</p>
+                        <div class="social-links">
+                          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="imgs/abd.jpg" alt="">
+                        <div class="member-details">
+                            <p><strong>Age:</strong> 15</p>
+                            <p><strong>Hobby:</strong> Gaming, ai training, programming</p>
+                            <p><strong>Quote:</strong> i’ll see you on the dark side of the moon."
+                              </p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Abdullah“Vergil“Mohammed</h3>
+                        <p>Ai specialist
+                        </p>
+                        <div class="social-links">
+                          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="imgs/cat.jpg" alt="Mike Johnson">
+                        <div class="member-details">
+                            <p><strong>Age:</strong> 18</p>
+                            <p><strong>Hobby:</strong> Writing, Reading, Pet Animal Care and Content Creation.</p>
+                            <p><strong>Quote:</strong> "Money does not bring sorrow."</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Karar Ammar Hussein</h3>
+                        <p>Environmental Content Specialist</p>
+                        <div class="social-links">
+                          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="imgs/ha.jpg" alt="">
+                        <div class="member-details">
+                            <p><strong>Age:</strong> 18</p>
+                            <p><strong>Hobby:</strong> Volleyball, draws, astronomy</p>
+                            <p><strong>Quote:</strong>  "Cuz one in a million chance still a chance."</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Hadeel aiaz solima</h3>
+                        <p>Painter
+                        </p>
+                        <div class="social-links">
+                          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="imgs/ft.jpg" alt="">
+                        <div class="member-details">
+                            <p><strong>Age:</strong> 20</p>
+                            <p><strong>Hobby:</strong>  I love games and movies, and I draw in my free time.</p>
+                            <p><strong>Quote:</strong> "Everything will kill you so choose something fun."</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Fatima Adel Moussa</h3>
+                        <p>Voice actress</p>
+                        <div class="social-links">
+                          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="imgs/spa.jpg" alt="">
+                        <div class="member-details">
+                            <p><strong>Age:</strong> 15</p>
+                            <p><strong>Hobby:</strong> Coding</p>
+                            <p><strong>Quote:</strong> "Talent wins games, but teamwork wins championships."</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Spike</h3>
+                        <p>Data</p>
+                        <div class="social-links">
+                          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#home" class="translatable" data-en="Home" data-ar="الرئيسية">Home</a>
+          <a href="#about" class="translatable" data-en="About" data-ar="معلومات عنا">About</a>
+          <a href="#services" class="translatable" data-en="Services" data-ar="الخدمات">Services</a>
+          <a href="#contact" class="translatable" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="footer-copy">
+          <p class="translatable" data-en="© 2024 ." data-ar="© 2024 ">
+            © 2024 .
+          </p>
+          <p>For support, contact us at: <a href="mailto:support@example.com" style="color: white;">support@example.com</a></p>
+        </div>
+      </div>
+    </footer>
+      
+      
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+
+            const memberImages = document.querySelectorAll('.member-image');
+
+            memberImages.forEach(image => {
+                image.addEventListener('click', () => {
+                    const details = image.querySelector('.member-details');
+                    details.classList.toggle('show');
+                });
+            });
+        });
+
+
+        const mobileMenu = document.getElementById("mobile-menu");
+const navList = document.querySelector(".nav-list");
+
+if (mobileMenu) {
+    mobileMenu.addEventListener("click", () => {
+        navList.classList.toggle("show");
+    });
+}
+
+function showText() {
+    const translatableElements = document.querySelectorAll('.translatable');
+    translatableElements.forEach(element => {
+        element.style.opacity = 1;
+    });
+}
+
+setTimeout(showText, 1000);
+
+
+    </script>
+</body>
+</html>
